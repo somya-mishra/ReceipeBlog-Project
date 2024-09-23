@@ -133,7 +133,7 @@ namespace ReceipeBlog.Controllers
 
         }
 
-
+        [HttpDelete("{id}")]
         public ActionResult DeleteReceipe(int id)
         {
             var ExistingReceipe = _receipeRepository.GetReceipe(id);
