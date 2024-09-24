@@ -21,6 +21,8 @@
             Ingredients ingredients = _appDbContext.Ingredients.Find(id);
             if(ingredients != null)
             {
+              var result =   _appDbContext.FoodReceipeIngredients.Where(x => x.IngredientId == id).ToList();
+                _appDbContext.FoodReceipeIngredients.RemoveRange(result);
                 _appDbContext.Ingredients.Remove(ingredients);
                 _appDbContext.SaveChanges();
             }
