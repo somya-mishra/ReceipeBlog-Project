@@ -19,6 +19,11 @@ namespace ReceipeBlog.Model
 
         public DbSet<FoodReceipeIngredient> FoodReceipeIngredients{ get; set; }
 
+        public DbSet<User>  Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+
+        public DbSet<UserRole> UserRoles { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -30,6 +35,9 @@ namespace ReceipeBlog.Model
 
             modelBuilder.Entity<FoodReceipeIngredient>().HasOne(r1 => r1.Ingredients).
                 WithMany(r => r.FoodReceipeIngredients).HasForeignKey(ri => ri.IngredientId);
+
+            modelBuilder.Entity<UserRole>().HasKey(r1 => new { r1.UserId, r1.RoleId });
+
         }
     }
 }

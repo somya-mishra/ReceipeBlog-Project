@@ -19,6 +19,7 @@ builder.Services.AddScoped<IReceipeRepository,SQLReceipeRepository>();
 
 builder.Services.AddScoped<IIngredientRepository, SQLIngredientRepository>();
 builder.Services.AddScoped<IFoodReceipeIngredientRepository, SQLFoodReceipeIngredientRepository>();
+builder.Services.AddScoped<IRoleRepository, SQLRolesRepository>();
 
 var app = builder.Build();
 
